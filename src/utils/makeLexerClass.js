@@ -126,7 +126,7 @@ export default function makeLexerClass(patterns) {
     }
 
     error(message) {
-      throw new Error(`${message} at line ${this.ln + 1} column ${this.col + 1}.
+      throw new Error(`错误信息：${message}；在第${this.ln + 1}行 第${this.col + 1}列
 ${this.line.str}
 ${repeat(' ', this.line.col)}^`)
     }
