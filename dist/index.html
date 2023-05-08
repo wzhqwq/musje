@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>简谱编辑器</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="editor">
+      <div class="left">
+        <h1 class="head">
+          简谱编辑器
+          <button class="btn-icon" id="btn-help">
+            <img src="help.svg" alt="帮助" />
+          </button>
+        </h1>
+        <form id="sheet-inputs">
+          <div class="textfield">
+            <label>标题</label>
+            <input type="text" name="title" />
+          </div>
+          <div class="textfield">
+            <label>副标题</label>
+            <input type="text" name="subtitle" />
+          </div>
+          <div class="textfield">
+            <label>曲作者</label>
+            <input type="text" name="composer" />
+          </div>
+          <div class="textfield">
+            <label>词作者</label>
+            <input type="text" name="lyricist" />
+          </div>
+          <div class="textfield">
+            <label>速度标记</label>
+            <select name="tempo">
+              <option value="Grave">庄板 Grave</option>
+              <option value="Largo">广板 Largo</option>
+              <option value="Lento">慢板 Lento</option>
+              <option value="Adagio">柔板 Adagio</option>
+              <option value="Larghetto">小广板 Larghetto</option>
+              <option value="Andante">行板 Andante</option>
+              <option value="Andantino">小行板 Andantino</option>
+              <option value="Morderato">中板 Morderato</option>
+              <option value="Allegretto">活泼 Allegretto</option>
+              <option value="Allegro">快板 Allegro</option>
+              <option value="Vivace">有生气 Vivace</option>
+              <option value="Presto">急板 Presto</option>
+            </select>
+          </div>
+          <div class="textfield">
+            <label>节拍</label>
+            <div class="beat-input">
+              <input type="number" name="beats_1" value="4" />
+              <span class="slash">/</span>
+              <input type="number" name="beats_2" value="4" />
+            </div>
+          </div>
+          <div class="textfield">
+            <label>力度</label>
+            <select name="strength">
+              <option value="ppp">极弱 ppp</option>
+              <option value="pp">很弱 pp</option>
+              <option value="p">弱 p</option>
+              <option value="mp">中弱 mp</option>
+              <option value="mf">中强 mf</option>
+              <option value="f">强 ff</option>
+              <option value="ff">很强 ff</option>
+              <option value="fff">极强 fff</option>
+            </select>
+          </div>
+          <div class="textfield wide">
+            <label>谱面</label>
+            <textarea rows="10" cols="60" name="notations"></textarea>
+          </div>
+          <div class="textfield wide">
+            <label>歌词（英）</label>
+            <textarea rows="10" cols="60" name="lyrics1"></textarea>
+          </div>
+          <div class="textfield wide">
+            <label>歌词（中）</label>
+            <textarea rows="10" cols="60" name="lyrics2"></textarea>
+          </div>
+        </form>
+        <div class="btns">
+          <button id="btn-play" class="btn btn-red">
+            <img src="play.svg" alt="" />播放
+          </button>
+          <button id="btn-stop" class="btn btn-black">
+            <img src="stop.svg" alt="" />停止
+          </button>
+          <button class="btn" id="btn-preset">加载示例</button>
+          <button id="btn-clear" class="btn">
+            <img src="clear.svg" alt="" />清空
+          </button>
+          <button id="btn-export" class="btn btn-blue">
+            <img src="download.svg" alt="" />导出
+          </button>
+        </div>
+      </div>
+      <div id="sheet">
+        <h1>预览</h1>
+      </div>
+    </div>
+    <div id="help-modal" class="modal-wrapper">
+      <div class="modal">
+        <img src="syntax.jpg" alt="简谱语法" />
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

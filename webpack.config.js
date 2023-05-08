@@ -1,30 +1,13 @@
 const path = require('path')
 
-const devOpts = {
-  mode: 'development',
+module.exports = {
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   devtool: 'inline-source-map',
   entry: './src/index.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
-  }
-}
-
-const buildOpts = {
-  mode: 'production',
-  entry: './src/musje.js',
-  output: {
-    filename: 'musje.js',
-    path: path.resolve(__dirname),
-    library: 'musje',
-    libraryTarget: 'umd'
-  }
-}
-
-module.exports = {
-  ...buildOpts,
-  // ...devOpts,
-
+  },
   module: {
     rules: [
       { test: /\.(style|mxl|musicxml)$/, use: 'raw-loader' },
@@ -38,18 +21,6 @@ module.exports = {
           }
         }
       },
-      // {
-      //   test: /\.(woff2?|ttf|eot|svg)$/,
-      //   use: [
-      //     {
-      //       loader: 'file-loader',
-      //       options: {
-      //         name: '[name].[ext]',
-      //         outputPath: 'fonts/'
-      //       }
-      //     }
-      //   ]
-      // },
       {
         test: /\.js$/, exclude: /node_modules/,
         use: {
