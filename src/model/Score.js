@@ -2,8 +2,6 @@ import Lexer from './Lexer'
 import { makeToJSON } from '../utils/helpers'
 import Head from './Head'
 import Body from './Body'
-import fromMxl from './fromMxl'
-import toMxl from './toMxl'
 import Player from '../player/Player'
 import Style from '../utils/Style'
 import defaultStyle from '../layout/default.style'
@@ -45,8 +43,4 @@ export default class Score {
 
   toString() { return [this.head, this.body].join('\n\n') }
   toJSON = makeToJSON('head', 'body')
-
-  toMxl = toMxl
-
-  static fromMxl = fromMxl
 }
